@@ -7,29 +7,28 @@ const team = {
 
 const copyTeam = JSON.parse(JSON.stringify(team));
 
-console.log("Client request...");
-console.log("started loadiing ...");
 
 const promise = new Promise ((resolve, reject)=>{
    setTimeout(()=> {
       const err = false;
 
-      if(!err){const response = { status:200, url: "https://google.com",};
-         console.log("Client get response from server", team);
-         console.log("preparing data ...");resolve(team);
-      } else{reject("status code 404,not found");}},2000);})
+      if(!err){
+         const response = {
+            status:200,
+            url: "https://google.com",
+         };
+        
+         resolve(response);
+      } else{
+         reject("status code 404,not found");
+      }
+   },1000);
+})
 .then((res)=>{
    setTimeout(()=>{
-      const data ={
-         userName: "John",
-         userAge: 19,
-      };
-      console.log("client get data", data, res);
+      console.log(copyTeam);
    }, 2000);
-   return "Hi";
 })
-.then((msg)=> alert(msg))
+
 .catch((err) => console.log("we have error", err))
 .finally(() => console.log("loading ended"));
-
-
