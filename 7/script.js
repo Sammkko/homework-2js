@@ -72,7 +72,7 @@ const search = dataFromBack.filter(({title, body, id}) => {
     return (  
      title.toLowerCase().indexOf(term) >= 0 ||
      body.toLowerCase().indexOf(term) >= 0 ||
-     String(id).toLowerCase().indexOf(term) >= 0
+     String(id).indexOf(term) >= 0
     )
 });
  postsContainerEl.innerHTML = createHTMLTamplate(search);

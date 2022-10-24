@@ -78,3 +78,11 @@ amountOneEl.addEventListener("input", runCalculate);
 currencyOneEl.addEventListener("change", getData);
 currencyTwoEl.addEventListener("change", runCalculate);
 
+
+swapEl.addEventListener("click", () =>{
+const one = currencyOneEl.value;
+currencyOneEl.value = currencyTwoEl.value;
+currencyTwoEl.value = one;
+
+getData();
+})
